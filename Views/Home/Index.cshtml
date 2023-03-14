@@ -1,0 +1,76 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+ 
+
+    
+
+
+    @* <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+     <label>Vertical Splitter Panes:</label> *@
+   
+           
+
+
+
+      
+ 
+
+<div class="row justify-content-between">
+    <div class="col-4">
+       <div id="wrapper">
+
+
+                <div class="scrollbar" id="style-1">
+                  @Html.Raw(ViewData["Html"]);
+                 <div class="force-overflow"></div>
+                </div>
+                </div>
+    <div class="col-4">
+     <button id="createTable" class="btn btn-primary" onclick="createTable()">Create Table</button>
+     <form id="Table_no" class="row g-3">
+       <div class="col-md-4">
+        <label>Table name</label>
+        <input type="text" class="form-control">
+       </div>
+       <div class="col-md-4">
+         <label>number of columns</label>
+            <input type="number" class="form-control">
+         </div>
+     </form>
+     <div id="wrapper" class="table_wrapper">
+
+
+                <div class="scrollbar" id="style-1">
+ <table id="myTable" border="1"> 
+</table><form> 
+@* <input type="button" onclick="createTable()" value="Create the table">*@ </form> 
+<div class="force-overflow"></div>
+                </div>
+                </div>
+    
+     
+</div>
+<form>
+</form>
+<input class="form-control custom-file-input">
+<label class="custom-file-label"> 
+<script>
+function createTable()
+{
+rn = window.prompt("Input number of rows", 1);
+cn = window.prompt("Input number of columns",1);
+  
+ for(var r=0;r<parseInt(rn,10);r++)
+  {
+   var x=document.getElementById('myTable').insertRow(r);
+   for(var c=0;c<parseInt(cn,10);c++)  
+    {
+     var y=  x.insertCell(c);
+     y.innerHTML="<input type='text'id='input_"+r+c+"' size='30' onclick='setCurrentFocusAsLastFocus()'/>"; 
+    }
+   }
+}
+</script>
